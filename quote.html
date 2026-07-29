@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Get a Quote — InsureAll</title>
+<meta name="description" content="Get a free, no-obligation insurance quote from InsureAll across every coverage category."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+<style>
+.quote-wrap { max-width: 760px; margin: 0 auto; }
+.form-card { background: var(--white); border-radius: var(--r-xl); border: 1px solid var(--rule); box-shadow: var(--shadow-card); padding: 56px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+.form-row.full { grid-template-columns: 1fr; }
+.field { display: flex; flex-direction: column; }
+.field label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); margin-bottom: 10px; }
+.field input, .field select, .field textarea {
+  border: none; border-bottom: 1.5px solid var(--rule); background: transparent;
+  padding: 12px 4px; font-size: 15px; font-family: 'Inter', sans-serif; color: var(--ink);
+  transition: border-color 0.25s, background 0.25s; border-radius: 2px 2px 0 0;
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: none; border-color: var(--emerald); background: var(--sand);
+}
+.field textarea { resize: vertical; min-height: 90px; }
+.form-progress { display: flex; gap: 8px; margin-bottom: 48px; }
+.form-progress .dot-step { height: 3px; flex: 1; background: var(--rule); border-radius: 99px; }
+.form-progress .dot-step.active { background: var(--emerald); }
+.form-submit { margin-top: 16px; width: 100%; padding: 18px; }
+.quote-trust { display: flex; gap: 32px; justify-content: center; margin-top: 40px; flex-wrap: wrap; }
+.quote-trust-item { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--ink-soft); }
+.quote-trust-item .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--emerald); }
+@media (max-width: 640px) { .form-card { padding: 32px 24px; } .form-row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Insure<span>All</span></a>
+    <div class="nav-links">
+      <a href="life.html">Life</a>
+      <a href="health.html">Health</a>
+      <a href="auto.html">Auto</a>
+      <a href="home.html">Home</a>
+      <a href="business.html">Business</a>
+      <a href="claims.html">Claims</a>
+    </div>
+    <div class="nav-actions">
+      <a href="#" class="nav-login">Sign In</a>
+      <a href="quote.html" class="btn-primary">Get a Quote</a>
+    </div>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══ QUOTE HERO ═══ -->
+<section class="page-hero" style="padding-bottom:0">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-inner" style="padding-bottom:64px">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> <span>/</span> <span style="color:rgba(255,255,255,0.75)">Get a Quote</span>
+    </div>
+    <div style="max-width:640px;text-align:left">
+      <span class="hero-eyebrow">Free, No-Obligation</span>
+      <h1 style="font-size:clamp(34px,4vw,54px)">Let's find your perfect coverage.</h1>
+      <p class="hero-sub" style="max-width:520px">Tell us a little about what you need protected. A dedicated advisor will follow up within one business day with a tailored quote.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ QUOTE FORM ═══ -->
+<section class="section" style="background:var(--cream);padding-top:80px">
+  <div class="container">
+    <div class="quote-wrap fade-up">
+      <div class="form-card">
+        <div class="form-progress">
+          <div class="dot-step active"></div><div class="dot-step active"></div><div class="dot-step"></div>
+        </div>
+        <form id="quoteForm">
+          <div class="form-row full">
+            <div class="field">
+              <label for="insuranceType">Insurance Type</label>
+              <select id="insuranceType" name="insuranceType" required>
+                <option value="">Select a coverage type&hellip;</option>
+                <option value="life">Life Insurance</option>
+          <option value="health">Health Insurance</option>
+          <option value="auto">Automobile</option>
+          <option value="home">Home & Property</option>
+          <option value="education">Education</option>
+          <option value="travel">Travel Insurance</option>
+          <option value="business">Business Insurance</option>
+          <option value="pet">Pet Insurance</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" name="firstName" placeholder="Jordan" required/>
+            </div>
+            <div class="field">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" placeholder="Rivera" required/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="jordan@email.com" required/>
+            </div>
+            <div class="field">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" required/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="zip">Zip / Postal Code</label>
+              <input type="text" id="zip" name="zip" placeholder="10001"/>
+            </div>
+            <div class="field">
+              <label for="coverage">Preferred Coverage Level</label>
+              <select id="coverage" name="coverage">
+                <option value="essential">Essential</option>
+                <option value="standard" selected>Standard</option>
+                <option value="premium">Premium</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row full">
+            <div class="field">
+              <label for="notes">Anything specific we should know? (optional)</label>
+              <textarea id="notes" name="notes" placeholder="e.g. I have 2 vehicles, or I'm looking for family coverage&hellip;"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary form-submit">Request My Free Quote</button>
+        </form>
+      </div>
+      <div class="quote-trust">
+        <div class="quote-trust-item"><span class="dot"></span>No spam, ever</div>
+        <div class="quote-trust-item"><span class="dot"></span>Response within 1 business day</div>
+        <div class="quote-trust-item"><span class="dot"></span>No obligation to purchase</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">Insure<span>All</span></div>
+        <p>Protecting legacies across 47 countries with editorial precision and human warmth since 1991.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Coverage</h4>
+        <ul>
+          <li><a href="life.html">Life Insurance</a></li>
+          <li><a href="health.html">Health Insurance</a></li>
+          <li><a href="auto.html">Automobile</a></li>
+          <li><a href="home.html">Home & Property</a></li>
+          <li><a href="education.html">Education</a></li>
+          <li><a href="travel.html">Travel</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>More</h4>
+        <ul>
+          <li><a href="business.html">Business</a></li>
+          <li><a href="pet.html">Pet Insurance</a></li>
+          <li><a href="index.html#categories">All Coverage</a></li>
+          <li><a href="quote.html">Get a Quote</a></li>
+          <li><a href="claims.html">File a Claim</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About InsureAll</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Newsroom</a></li>
+          <li><a href="#">Transparency Report</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 InsureAll Inc. All rights reserved. Regulated by the FCA. Lloyd's Syndicate Member.</p>
+      <div class="footer-socials">
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+function toggleFAQ(btn) {
+  const item = btn.closest('.faq-item');
+  const answer = item.querySelector('.faq-answer');
+  const icon = btn.querySelector('.faq-icon');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(el => {
+    el.classList.remove('open');
+    el.querySelector('.faq-answer').style.maxHeight = '0';
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+  }
+}
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) nav.style.boxShadow = '0 2px 32px rgba(13,27,42,0.09)';
+  else nav.style.boxShadow = 'none';
+}, { passive: true });
+</script>
+<script>
+// Pre-select insurance type from URL param (?type=health etc.)
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const type = params.get('type');
+  if (type) {
+    const select = document.getElementById('insuranceType');
+    if (select) select.value = type;
+  }
+})();
+document.getElementById('quoteForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('.form-submit');
+  btn.textContent = 'Request Received ✓';
+  btn.style.background = 'var(--emerald)';
+  setTimeout(() => { btn.textContent = "We'll be in touch within 1 business day"; }, 1800);
+});
+</script>
+</body>
+</html>
