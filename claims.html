@@ -27,9 +27,21 @@
       <a href="#" class="nav-login">Sign In</a>
       <a href="quote.html" class="btn-primary">Get a Quote</a>
     </div>
-    <button class="hamburger" aria-label="Menu">
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="life.html">Life</a>
+      <a href="health.html">Health</a>
+      <a href="auto.html">Auto</a>
+      <a href="home.html">Home</a>
+      <a href="business.html">Business</a>
+      <a href="claims.html" class="active-link">Claims</a>
+    <div class="mobile-nav-actions">
+      <a href="#" class="nav-login">Sign In</a>
+      <a href="quote.html" class="btn-primary">Get a Quote</a>
+    </div>
   </div>
 </nav>
 
@@ -261,6 +273,24 @@ window.addEventListener('scroll', () => {
   if (window.scrollY > 60) nav.style.boxShadow = '0 2px 32px rgba(13,27,42,0.09)';
   else nav.style.boxShadow = 'none';
 }, { passive: true });
+
+// Mobile hamburger menu toggle
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileNav = document.getElementById('mobileNav');
+if (hamburgerBtn && mobileNav) {
+  hamburgerBtn.addEventListener('click', () => {
+    hamburgerBtn.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+    document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+  });
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburgerBtn.classList.remove('open');
+      mobileNav.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+}
 </script>
 <script>
 document.getElementById('claimForm').addEventListener('submit', function(e) {
