@@ -312,6 +312,17 @@ nav {
   border: 1px solid var(--rule);
   border-radius: var(--r-xl); overflow: hidden;
 }
+/* Same visual treatment as categories-grid but its own class so it always gets proper responsive breakpoints */
+.claims-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-xl); overflow: hidden;
+}
+@media (max-width: 900px) { .claims-process-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .claims-process-grid { grid-template-columns: 1fr; } }
 .cat-card {
   background: var(--cream);
   padding: 40px 32px;
