@@ -118,7 +118,7 @@
       <h2 class="headline">From first notice to final settlement.</h2>
       <span class="rule"></span>
     </div>
-    <div class="categories-grid fade-up fade-up-d1" style="grid-template-columns:repeat(4,1fr)">
+    <div class="claims-process-grid fade-up fade-up-d1">
       <div class="cat-card">
         <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18"/><path d="M24 14v10l7 5"/></svg></div>
         <h3>1. Report</h3>
@@ -146,45 +146,45 @@
 <!-- ═══ FILE A CLAIM FORM ═══ -->
 <section class="section" id="file-claim" style="background:var(--sand)">
   <div class="container">
-    <div style="max-width:720px;margin:0 auto" class="fade-up">
+    <div class="quote-wrap fade-up" style="max-width:720px">
       <div class="section-header" style="text-align:center;margin-bottom:48px">
         <span class="eyebrow">File a Claim</span>
         <h2 class="headline">Start your claim below.</h2>
         <p class="body-lg" style="margin:0 auto">A member of your claims team will confirm receipt within 2 hours during business hours, or immediately for emergency line calls.</p>
       </div>
-      <div style="background:var(--white);border-radius:var(--r-xl);border:1px solid var(--rule);box-shadow:var(--shadow-card);padding:56px">
+      <div class="form-card">
         <form id="claimForm">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px">
-            <div class="field" style="display:flex;flex-direction:column">
-              <label style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);margin-bottom:10px">Policy Number</label>
-              <input type="text" placeholder="IA-000000000" required style="border:none;border-bottom:1.5px solid var(--rule);background:transparent;padding:12px 4px;font-size:15px;font-family:'Inter',sans-serif"/>
+          <div class="form-row">
+            <div class="field">
+              <label for="policyNumber">Policy Number</label>
+              <input type="text" id="policyNumber" name="policyNumber" placeholder="IA-000000000" required/>
             </div>
-            <div class="field" style="display:flex;flex-direction:column">
-              <label style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);margin-bottom:10px">Coverage Type</label>
-              <select required style="border:none;border-bottom:1.5px solid var(--rule);background:transparent;padding:12px 4px;font-size:15px;font-family:'Inter',sans-serif">
+            <div class="field">
+              <label for="coverageType">Coverage Type</label>
+              <select id="coverageType" name="coverageType" required>
                 <option value="">Select&hellip;</option>
                 <option>Life</option><option>Health</option><option>Automobile</option><option>Home & Property</option>
                 <option>Education</option><option>Travel</option><option>Business</option><option>Pet</option>
               </select>
             </div>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px">
-            <div class="field" style="display:flex;flex-direction:column">
-              <label style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);margin-bottom:10px">Full Name</label>
-              <input type="text" placeholder="Jordan Rivera" required style="border:none;border-bottom:1.5px solid var(--rule);background:transparent;padding:12px 4px;font-size:15px;font-family:'Inter',sans-serif"/>
+          <div class="form-row">
+            <div class="field">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="fullName" placeholder="Jordan Rivera" required/>
             </div>
-            <div class="field" style="display:flex;flex-direction:column">
-              <label style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);margin-bottom:10px">Date of Incident</label>
-              <input type="date" required style="border:none;border-bottom:1.5px solid var(--rule);background:transparent;padding:12px 4px;font-size:15px;font-family:'Inter',sans-serif"/>
-            </div>
-          </div>
-          <div style="margin-bottom:24px">
-            <div class="field" style="display:flex;flex-direction:column">
-              <label style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);margin-bottom:10px">Describe What Happened</label>
-              <textarea placeholder="Please share as much detail as possible&hellip;" required style="border:none;border-bottom:1.5px solid var(--rule);background:transparent;padding:12px 4px;font-size:15px;font-family:'Inter',sans-serif;min-height:110px;resize:vertical"></textarea>
+            <div class="field">
+              <label for="incidentDate">Date of Incident</label>
+              <input type="date" id="incidentDate" name="incidentDate" required/>
             </div>
           </div>
-          <button type="submit" class="btn-primary" style="width:100%;padding:18px">Submit Claim</button>
+          <div class="form-row full">
+            <div class="field">
+              <label for="description">Describe What Happened</label>
+              <textarea id="description" name="description" placeholder="Please share as much detail as possible&hellip;" required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary form-submit" style="width:100%;padding:18px;text-align:center;justify-content:center">Submit Claim</button>
         </form>
       </div>
     </div>
@@ -329,7 +329,7 @@ if (hamburgerBtn && mobileNav) {
 <script>
 document.getElementById('claimForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  const btn = this.querySelector('button[type="submit"]');
+  const btn = this.querySelector('.form-submit');
   btn.textContent = 'Claim Submitted ✓';
   btn.style.background = 'var(--emerald)';
 });
