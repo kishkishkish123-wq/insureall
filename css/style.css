@@ -561,6 +561,65 @@ nav {
   .resources-grid { grid-template-columns: 1fr; }
 }
 
+/* ─── BUNDLE & SAVE CALCULATOR ─────────────────────── */
+.bundle-calc-wrap { display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: start; }
+.bundle-calc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.bundle-card {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  background: var(--white); border: 1.5px solid var(--rule); border-radius: var(--r-lg);
+  padding: 22px 12px; cursor: pointer; transition: all 0.25s; text-align: center;
+  box-shadow: var(--shadow-card);
+}
+.bundle-card .cat-icon { width: 28px; height: 28px; color: var(--emerald); margin: 0; }
+.bundle-card-name { font-size: 12px; font-weight: 600; color: var(--ink-soft); }
+.bundle-card-price { font-size: 11px; color: var(--stone); }
+.bundle-card:hover { border-color: var(--emerald); transform: translateY(-2px); }
+.bundle-card.selected { border-color: var(--emerald); background: rgba(45,71,57,0.06); }
+.bundle-card.selected .bundle-card-name { color: var(--emerald); }
+.bundle-calc-result {
+  background: var(--midnight); border-radius: var(--r-xl); padding: 36px;
+  position: sticky; top: 100px;
+}
+.bundle-result-row { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.bundle-result-label { font-size: 13px; color: rgba(255,255,255,0.5); }
+.bundle-result-value { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 600; color: rgba(255,255,255,0.5); }
+.bundle-result-value.strikethrough { text-decoration: line-through; }
+.bundle-result-main { border-bottom: none; padding-top: 20px; }
+.bundle-result-main .bundle-result-label { color: rgba(255,255,255,0.8); font-weight: 500; }
+.bundle-result-main .bundle-result-value { font-size: 32px; color: var(--white); }
+.bundle-result-savings { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 20px; line-height: 1.6; transition: color 0.25s; }
+.bundle-result-savings.has-savings { color: var(--gold); font-weight: 600; }
+@media (max-width: 900px) {
+  .bundle-calc-wrap { grid-template-columns: 1fr; }
+  .bundle-calc-grid { grid-template-columns: repeat(2, 1fr); }
+  .bundle-calc-result { position: static; }
+}
+
+/* ─── CLAIMS SPEED SPOTLIGHT ─────────────────────── */
+.claims-spotlight { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; }
+.claims-spotlight-stats { display: flex; flex-direction: column; gap: 24px; }
+.claims-stat {
+  display: flex; align-items: baseline; gap: 12px;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--r-lg); padding: 24px 28px;
+}
+.claims-stat-num { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 700; color: var(--gold); letter-spacing: -0.03em; }
+.claims-stat-unit { font-family: 'Playfair Display', serif; font-size: 18px; color: rgba(255,255,255,0.5); }
+.claims-stat-label { font-size: 12px; color: rgba(255,255,255,0.4); margin-left: auto; text-align: right; max-width: 110px; }
+@media (max-width: 900px) { .claims-spotlight { grid-template-columns: 1fr; gap: 32px; } }
+
+/* ─── GUIDE ARTICLE CONTENT ─────────────────────── */
+.guide-content { max-width: 720px; margin: 0 auto; }
+.guide-section { margin-bottom: 44px; }
+.guide-section h3 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: var(--midnight); margin-bottom: 16px; }
+.guide-section p { font-size: 16px; line-height: 1.8; color: var(--ink-soft); }
+.guide-section p strong { color: var(--midnight); font-weight: 600; }
+.guide-cta {
+  max-width: 720px; margin: 48px auto 0; padding: 32px; background: var(--sand);
+  border-radius: var(--r-xl); display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;
+}
+.guide-cta p { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; color: var(--midnight); margin: 0; flex: 1; min-width: 200px; }
+
 /* ─── FAQ ───────────────────────────────────────── */
 .faq { background: var(--white); }
 .faq-grid { display: grid; grid-template-columns: 4fr 8fr; gap: 100px; align-items: start; }
@@ -732,6 +791,22 @@ footer { background: var(--midnight); border-top: 1px solid rgba(255,255,255,0.0
 .tiers-table .yes { color: var(--emerald); font-weight: 600; }
 .tiers-table .no { color: var(--stone); opacity: 0.4; }
 .tiers-table td.highlight-col, .tiers-table th.highlight-col { background: rgba(45,71,57,0.04); }
+
+/* Interactive tier comparison */
+.tier-col { cursor: pointer; transition: background 0.25s; position: relative; }
+.tier-col:hover { background: rgba(45,71,57,0.06); }
+.tier-col.tier-active { background: var(--midnight) !important; }
+.tier-th-name { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; color: var(--midnight); margin-bottom: 8px; transition: color 0.25s; }
+.tier-col.tier-active .tier-th-name { color: var(--white); }
+.tier-th-cta {
+  display: block; font-size: 10.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--emerald); opacity: 0; transition: opacity 0.25s;
+}
+.tier-col:hover .tier-th-cta, .tier-col.tier-active .tier-th-cta { opacity: 1; }
+.tier-col.tier-active .tier-th-cta { color: var(--gold); }
+.tier-cell { transition: background 0.25s; }
+.tier-cell.tier-active { background: rgba(45,71,57,0.05); }
+
 
 /* ─── WHO IT'S FOR chips ── */
 .audience-row { display: flex; flex-wrap: wrap; gap: 14px; }
