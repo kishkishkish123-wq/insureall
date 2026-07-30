@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="css/style.css?v=5"/>
+<link rel="stylesheet" href="css/style.css?v=6"/>
 
 </head>
 <body>
@@ -30,6 +30,7 @@
         </div>
       </div>
       <a href="claims.html">Claims</a>
+      <a href="resources.html">Resources</a>
       <a href="about.html">About</a>
     </div>
     <div class="nav-actions">
@@ -51,6 +52,7 @@
       <a href="business.html">Business</a>
       <a href="pet.html">Pet</a>
       <a href="claims.html">Claims</a>
+      <a href="resources.html">Resources</a>
       <a href="about.html">About</a>
   <div class="mobile-nav-actions">
     <a href="#" class="nav-login">Sign In</a>
@@ -149,18 +151,19 @@
     <div class="section-header fade-up">
       <span class="eyebrow">Choose Your Level</span>
       <h2 class="headline">Compare travel insurance plans</h2>
+      <p class="body" style="color:var(--ink-soft);margin-top:12px">Tap a column to compare &mdash; prices update instantly based on travel insurance base rates.</p>
       <span class="rule"></span>
     </div>
     <div class="tiers-table-wrap fade-up fade-up-d1">
-      <table class="tiers-table">
-        <thead><tr><th>Feature</th><th>Single Trip</th><th>Annual Multi-Trip</th><th>Adventure</th></tr></thead>
+      <table class="tiers-table tiers-table-interactive" id="tiersTable">
+        <thead><tr><th class="tier-th-label"></th><th class="tier-col" data-tier="0"><div class="tier-th-name">Single Trip</div><a href="quote.html?type=travel&level=essential" class="tier-th-cta">Get this plan &rarr;</a></th><th class="tier-col" data-tier="1"><div class="tier-th-name">Annual Multi-Trip</div><a href="quote.html?type=travel&level=standard" class="tier-th-cta">Get this plan &rarr;</a></th><th class="tier-col" data-tier="2"><div class="tier-th-name">Adventure</div><a href="quote.html?type=travel&level=premium" class="tier-th-cta">Get this plan &rarr;</a></th></tr></thead>
         <tbody>
-          <tr><td>Medical coverage limit</td><td>$100,000</td><td>$250,000</td><td>$500,000</td></tr>
-<tr><td>Trip cancellation</td><td class="yes">&#10003; Included</td><td class="yes">&#10003; Included</td><td class="yes">&#10003; Included</td></tr>
-<tr><td>Adventure sports</td><td class="no">&mdash; Not included</td><td class="no">&mdash; Not included</td><td>included</td></tr>
-<tr><td>Trips per year</td><td>1</td><td>Unlimited</td><td>Unlimited</td></tr>
-<tr><td>Emergency evacuation</td><td class="yes">&#10003; Included</td><td class="yes">&#10003; Included</td><td class="yes">&#10003; Included</td></tr>
-<tr><td>Best for</td><td>Occasional travellers</td><td>Frequent flyers</td><td>Adventure & sports travellers</td></tr>
+          <tr><td class="tier-row-label">Medical coverage limit</td><td class="tier-cell" data-tier="0">$100,000</td><td class="tier-cell" data-tier="1">$250,000</td><td class="tier-cell" data-tier="2">$500,000</td></tr>
+<tr><td class="tier-row-label">Trip cancellation</td><td class="tier-cell" data-tier="0"><span class="yes">&#10003; Included</span></td><td class="tier-cell" data-tier="1"><span class="yes">&#10003; Included</span></td><td class="tier-cell" data-tier="2"><span class="yes">&#10003; Included</span></td></tr>
+<tr><td class="tier-row-label">Adventure sports</td><td class="tier-cell" data-tier="0"><span class="no">&mdash; Not included</span></td><td class="tier-cell" data-tier="1"><span class="no">&mdash; Not included</span></td><td class="tier-cell" data-tier="2">included</td></tr>
+<tr><td class="tier-row-label">Trips per year</td><td class="tier-cell" data-tier="0">1</td><td class="tier-cell" data-tier="1">Unlimited</td><td class="tier-cell" data-tier="2">Unlimited</td></tr>
+<tr><td class="tier-row-label">Emergency evacuation</td><td class="tier-cell" data-tier="0"><span class="yes">&#10003; Included</span></td><td class="tier-cell" data-tier="1"><span class="yes">&#10003; Included</span></td><td class="tier-cell" data-tier="2"><span class="yes">&#10003; Included</span></td></tr>
+<tr><td class="tier-row-label">Best for</td><td class="tier-cell" data-tier="0">Occasional travellers</td><td class="tier-cell" data-tier="1">Frequent flyers</td><td class="tier-cell" data-tier="2">Adventure & sports travellers</td></tr>
 
         </tbody>
       </table>
@@ -318,6 +321,7 @@
           <li><a href="business.html">Business</a></li>
           <li><a href="pet.html">Pet Insurance</a></li>
           <li><a href="index.html#categories">All Coverage</a></li>
+          <li><a href="resources.html">Resources & Guides</a></li>
           <li><a href="quote.html">Get a Quote</a></li>
           <li><a href="claims.html">File a Claim</a></li>
         </ul>
@@ -411,6 +415,19 @@ if (hamburgerBtn && mobileNav) {
     });
   });
 }
+</script>
+<script>
+// Interactive tier column highlighting
+document.querySelectorAll('.tier-col').forEach(th => {
+  th.addEventListener('click', () => {
+    const idx = th.dataset.tier;
+    const alreadyActive = th.classList.contains('tier-active');
+    document.querySelectorAll('.tier-col, .tier-cell').forEach(el => el.classList.remove('tier-active'));
+    if (!alreadyActive) {
+      document.querySelectorAll(`[data-tier="${idx}"]`).forEach(el => el.classList.add('tier-active'));
+    }
+  });
+});
 </script>
 </body>
 </html>
