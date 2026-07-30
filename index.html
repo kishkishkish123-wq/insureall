@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="css/style.css?v=5"/>
+<link rel="stylesheet" href="css/style.css?v=6"/>
 
 </head>
 <body>
@@ -30,6 +30,7 @@
         </div>
       </div>
       <a href="claims.html">Claims</a>
+      <a href="resources.html">Resources</a>
       <a href="about.html">About</a>
     </div>
     <div class="nav-actions">
@@ -51,6 +52,7 @@
       <a href="business.html">Business</a>
       <a href="pet.html">Pet</a>
       <a href="claims.html">Claims</a>
+      <a href="resources.html">Resources</a>
       <a href="about.html">About</a>
   <div class="mobile-nav-actions">
     <a href="#" class="nav-login">Sign In</a>
@@ -145,6 +147,107 @@
         <h3>Pet Insurance</h3>
         <p>Veterinary care, surgeries and medication covered so your companions always receive the best.</p>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BUNDLE & SAVE CALCULATOR ═══ -->
+<section class="section" id="bundle-calc" style="background:var(--sand)">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="eyebrow">Bundle & Save</span>
+      <h2 class="headline">See how much bundling saves you.</h2>
+      <p class="body-lg">Select any coverage types below &mdash; watch your combined savings update instantly.</p>
+      <span class="rule"></span>
+    </div>
+    <div class="bundle-calc-wrap fade-up fade-up-d1">
+      <div class="bundle-calc-grid">
+        
+        <button type="button" class="bundle-card" data-type="life" data-price="29">
+          <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 42s-16-10-16-22a16 16 0 0132 0c0 12-16 22-16 22z"/><path d="M24 18v8M20 22h8"/></svg></div>
+          <span class="bundle-card-name">Life Insurance</span>
+          <span class="bundle-card-price">$29/mo</span>
+        </button>
+        <button type="button" class="bundle-card" data-type="health" data-price="145">
+          <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="14" width="32" height="26" rx="3"/><path d="M16 14V10a8 8 0 0116 0v4"/><path d="M24 22v8M20 26h8"/></svg></div>
+          <span class="bundle-card-name">Health Insurance</span>
+          <span class="bundle-card-price">$145/mo</span>
+        </button>
+        <button type="button" class="bundle-card" data-type="auto" data-price="89">
+          <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 30h32M10 30l4-12h20l4 12"/><circle cx="16" cy="34" r="4"/><circle cx="32" cy="34" r="4"/><path d="M6 30v4h4M42 30v4h-4"/><path d="M18 18h12"/></svg></div>
+          <span class="bundle-card-name">Automobile</span>
+          <span class="bundle-card-price">$89/mo</span>
+        </button>
+        <button type="button" class="bundle-card" data-type="home" data-price="65">
+          <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 24L24 8l18 16"/><path d="M10 20v20h28V20"/><rect x="18" y="30" width="12" height="10"/></svg></div>
+          <span class="bundle-card-name">Home & Property</span>
+          <span class="bundle-card-price">$65/mo</span>
+        </button>
+        <button type="button" class="bundle-card" data-type="education" data-price="55">
+          <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 8L4 18l20 10 20-10z"/><path d="M4 18v16"/><path d="M12 22v12a12 12 0 0024 0V22"/></svg></div>
+          <span class="bundle-card-name">Education</span>
+          <span class="bundle-card-price">$55/mo</span>
+        </button>
+        <button type="button" class="bundle-card" data-type="travel" data-price="12">
+          <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M42 24L6 10l4 10-4 4 10 4 4 10 4-4z"/><path d="M22 26l-6 12"/></svg></div>
+          <span class="bundle-card-name">Travel Insurance</span>
+          <span class="bundle-card-price">$12/mo</span>
+        </button>
+        <button type="button" class="bundle-card" data-type="business" data-price="79">
+          <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="16" width="36" height="24" rx="2"/><path d="M16 16v-4a8 8 0 0116 0v4"/><path d="M6 26h36"/><path d="M20 26v6h8v-6"/></svg></div>
+          <span class="bundle-card-name">Business Insurance</span>
+          <span class="bundle-card-price">$79/mo</span>
+        </button>
+        <button type="button" class="bundle-card" data-type="pet" data-price="24">
+          <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 16c0-4 4-8 8-8s8 4 8 8-4 12-8 12-8-8-8-12z"/><circle cx="12" cy="12" r="4"/><circle cx="36" cy="12" r="4"/><path d="M10 30c2 6 6 10 14 10s12-4 14-10"/></svg></div>
+          <span class="bundle-card-name">Pet Insurance</span>
+          <span class="bundle-card-price">$24/mo</span>
+        </button>
+      </div>
+      <div class="bundle-calc-result">
+        <div class="bundle-result-row">
+          <span class="bundle-result-label">Separate policies would cost</span>
+          <span class="bundle-result-value strikethrough" id="bundleSeparate">$0/mo</span>
+        </div>
+        <div class="bundle-result-row bundle-result-main">
+          <span class="bundle-result-label">Bundled with InsureAll</span>
+          <span class="bundle-result-value" id="bundleTotal">$0/mo</span>
+        </div>
+        <div class="bundle-result-savings" id="bundleSavingsText">Select 2 or more coverage types to see your savings.</div>
+        <a href="quote.html" class="btn-primary" id="bundleCta" style="width:100%;text-align:center;justify-content:center;margin-top:20px;opacity:0.4;pointer-events:none">Get This Bundle &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CLAIMS SPEED SPOTLIGHT ═══ -->
+<section class="section" style="background:var(--midnight);position:relative;overflow:hidden">
+  <div class="cta-bg"></div>
+  <div class="container" style="position:relative;z-index:2">
+    <div class="claims-spotlight fade-up">
+      <div class="claims-spotlight-text">
+        <span class="eyebrow" style="color:var(--gold)">When It Matters Most</span>
+        <h2 class="headline" style="color:var(--white)">Claims paid in days, not months.</h2>
+        <p class="body-lg" style="color:rgba(255,255,255,0.55);margin-top:20px">While the industry average claim takes weeks to resolve, InsureAll's named-concierge model means most claims are settled within 7 days &mdash; some in as little as 48 hours.</p>
+        <a href="claims.html" class="btn-hero" style="margin-top:32px;display:inline-flex">See How Claims Work &rarr;</a>
+      </div>
+      <div class="claims-spotlight-stats">
+        <div class="claims-stat">
+          <span class="claims-stat-num">7</span>
+          <span class="claims-stat-unit">days</span>
+          <span class="claims-stat-label">Average settlement</span>
+        </div>
+        <div class="claims-stat">
+          <span class="claims-stat-num">48</span>
+          <span class="claims-stat-unit">hrs</span>
+          <span class="claims-stat-label">Fastest on record</span>
+        </div>
+        <div class="claims-stat">
+          <span class="claims-stat-num">98.7</span>
+          <span class="claims-stat-unit">%</span>
+          <span class="claims-stat-label">Claims approved</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -327,6 +430,7 @@
           <li><a href="business.html">Business</a></li>
           <li><a href="pet.html">Pet Insurance</a></li>
           <li><a href="index.html#categories">All Coverage</a></li>
+          <li><a href="resources.html">Resources & Guides</a></li>
           <li><a href="quote.html">Get a Quote</a></li>
           <li><a href="claims.html">File a Claim</a></li>
         </ul>
@@ -420,6 +524,64 @@ if (hamburgerBtn && mobileNav) {
     });
   });
 }
+</script>
+<script>
+let selectedBundle = [];
+document.querySelectorAll('.bundle-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const type = card.dataset.type;
+    if (selectedBundle.includes(type)) {
+      selectedBundle = selectedBundle.filter(t => t !== type);
+      card.classList.remove('selected');
+    } else {
+      selectedBundle.push(type);
+      card.classList.add('selected');
+    }
+    updateBundleCalc();
+  });
+});
+
+function updateBundleCalc() {
+  const prices = {};
+  document.querySelectorAll('.bundle-card').forEach(c => { prices[c.dataset.type] = parseFloat(c.dataset.price); });
+
+  const separateTotal = selectedBundle.reduce((sum, t) => sum + prices[t], 0);
+  let bundledTotal = 0;
+  if (selectedBundle.length >= 2) {
+    // First item full price, each additional item gets 22% off
+    bundledTotal = selectedBundle.reduce((sum, t, i) => sum + (i === 0 ? prices[t] : prices[t] * 0.78), 0);
+  } else {
+    bundledTotal = separateTotal;
+  }
+  bundledTotal = Math.round(bundledTotal);
+
+  document.getElementById('bundleSeparate').textContent = `$${Math.round(separateTotal)}/mo`;
+  document.getElementById('bundleTotal').textContent = `$${bundledTotal}/mo`;
+
+  const savingsText = document.getElementById('bundleSavingsText');
+  const cta = document.getElementById('bundleCta');
+
+  if (selectedBundle.length >= 2) {
+    const savings = Math.round(separateTotal - bundledTotal);
+    const pct = Math.round((savings / separateTotal) * 100);
+    savingsText.textContent = `You save $${savings}/mo (${pct}%) by bundling ${selectedBundle.length} coverage types.`;
+    savingsText.classList.add('has-savings');
+    cta.style.opacity = '1';
+    cta.style.pointerEvents = 'auto';
+    cta.href = `quote.html?type=${selectedBundle[0]}`;
+  } else if (selectedBundle.length === 1) {
+    savingsText.textContent = 'Select one more coverage type to unlock bundle savings.';
+    savingsText.classList.remove('has-savings');
+    cta.style.opacity = '0.4';
+    cta.style.pointerEvents = 'none';
+  } else {
+    savingsText.textContent = 'Select 2 or more coverage types to see your savings.';
+    savingsText.classList.remove('has-savings');
+    cta.style.opacity = '0.4';
+    cta.style.pointerEvents = 'none';
+  }
+}
+updateBundleCalc();
 </script>
 </body>
 </html>
