@@ -4,346 +4,76 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Get a Quote — InsureAll</title>
-<meta name="description" content="Get an instant illustrative insurance quote from InsureAll. See your price in 60 seconds across every coverage category."/>
+<meta name="description" content="Get a free life insurance quote. No obligation, response within 1 business day."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="css/style.css?v=7"/>
-<style>
-.quote-wrap { max-width: 820px; margin: 0 auto; }
-.form-card { background: var(--white); border-radius: var(--r-xl); border: 1px solid var(--rule); box-shadow: var(--shadow-card); padding: 56px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
-.form-row.full { grid-template-columns: 1fr; }
-.field { display: flex; flex-direction: column; }
-.field label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); margin-bottom: 10px; }
-.field input, .field select, .field textarea {
-  border: none; border-bottom: 1.5px solid var(--rule); background: transparent;
-  padding: 12px 4px; font-size: 15px; font-family: 'Inter', sans-serif; color: var(--ink);
-  transition: border-color 0.25s, background 0.25s; border-radius: 2px 2px 0 0;
-}
-.field input:focus, .field select:focus, .field textarea:focus {
-  outline: none; border-color: var(--emerald); background: var(--sand);
-}
-.field textarea { resize: vertical; min-height: 90px; }
-
-.form-progress { display: flex; gap: 8px; margin-bottom: 40px; }
-.form-progress .dot-step { height: 3px; flex: 1; background: var(--rule); border-radius: 99px; transition: background 0.3s; }
-.form-progress .dot-step.active { background: var(--emerald); }
-.step-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone); margin-bottom: 8px; display: block; }
-.step-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 600; color: var(--midnight); margin-bottom: 32px; }
-
-.quote-step { display: none; }
-.quote-step.active { display: block; animation: fadeStep 0.35s ease; }
-@keyframes fadeStep { from { opacity:0; transform:translateY(8px);} to {opacity:1; transform:translateY(0);} }
-
-.type-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 8px; }
-.type-card {
-  display: flex; flex-direction: column; align-items: center; gap: 12px;
-  background: var(--cream); border: 1.5px solid var(--rule); border-radius: var(--r-lg);
-  padding: 24px 12px; cursor: pointer; transition: all 0.25s; text-align: center;
-}
-.type-card .cat-icon { width: 28px; height: 28px; color: var(--emerald); margin: 0; }
-.type-card span { font-size: 12px; font-weight: 600; color: var(--ink-soft); }
-.type-card:hover { border-color: var(--emerald); background: var(--white); }
-.type-card.selected { border-color: var(--emerald); background: rgba(45,71,57,0.06); }
-.type-card.selected span { color: var(--emerald); }
-
-.level-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 8px; }
-.level-card {
-  background: var(--cream); border: 1.5px solid var(--rule); border-radius: var(--r-lg);
-  padding: 24px 20px; cursor: pointer; transition: all 0.25s;
-}
-.level-card:hover { border-color: var(--emerald); }
-.level-card.selected { border-color: var(--emerald); background: rgba(45,71,57,0.06); }
-.level-card .level-name { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; color: var(--midnight); margin-bottom: 6px; }
-.level-card .level-mult { font-size: 12px; color: var(--stone); }
-
-.price-panel {
-  background: var(--midnight); border-radius: var(--r-xl); padding: 32px;
-  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
-  margin: 32px 0 40px;
-}
-.price-panel-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
-.price-panel-amount { display: flex; align-items: baseline; gap: 6px; }
-.price-panel-amount .curr { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--gold); }
-.price-panel-amount .num { font-family: 'Playfair Display', serif; font-size: 44px; font-weight: 700; color: var(--white); letter-spacing: -0.03em; transition: all 0.2s; }
-.price-panel-amount .period { font-size: 13px; color: rgba(255,255,255,0.4); }
-.price-panel-note { font-size: 12px; color: rgba(255,255,255,0.35); max-width: 220px; text-align: right; }
-
-.step-actions { display: flex; gap: 12px; margin-top: 8px; }
-.btn-back { padding: 16px 28px; border: 1.5px solid var(--rule); border-radius: var(--r); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); transition: all 0.2s; }
-.btn-back:hover { border-color: var(--midnight); color: var(--midnight); }
-.step-actions .btn-primary { flex: 1; text-align: center; justify-content: center; padding: 16px; }
-
-.quote-trust { display: flex; gap: 32px; justify-content: center; margin-top: 40px; flex-wrap: wrap; }
-.quote-trust-item { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--ink-soft); }
-.quote-trust-item .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--emerald); }
-
-@media (max-width: 640px) {
-  .form-card { padding: 32px 24px; }
-  .form-row, .level-grid { grid-template-columns: 1fr; }
-  .type-grid { grid-template-columns: repeat(2, 1fr); }
-  .price-panel { flex-direction: column; align-items: flex-start; }
-  .price-panel-note { text-align: left; }
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
+
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">Insure<span>All</span></a>
-    <div class="nav-links">
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" id="coverageDropdownBtn">Coverage <span class="dd-caret">&#9662;</span></button>
-        <div class="nav-dropdown-panel" id="coverageDropdownPanel">
-          <a href="life.html">Life</a>
-        <a href="health.html">Health</a>
-        <a href="auto.html">Auto</a>
-        <a href="home.html">Home</a>
-        <a href="education.html">Education</a>
-        <a href="travel.html">Travel</a>
-        <a href="business.html">Business</a>
-        <a href="pet.html">Pet</a>
-        </div>
-      </div>
-      <a href="claims.html">Claims</a>
-      <a href="resources.html">Resources</a>
-      <a href="about.html">About</a>
-    </div>
-    <div class="nav-actions">
-      <a href="#" class="nav-login">Sign In</a>
-      <a href="quote.html" class="btn-primary">Get a Quote</a>
-    </div>
-    <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+    <a href="index.html" class="btn-outline">Back to Home</a>
   </div>
 </nav>
-<div class="mobile-nav" id="mobileNav">
-  <a href="life.html">Life</a>
-      <a href="health.html">Health</a>
-      <a href="auto.html">Auto</a>
-      <a href="home.html">Home</a>
-      <a href="education.html">Education</a>
-      <a href="travel.html">Travel</a>
-      <a href="business.html">Business</a>
-      <a href="pet.html">Pet</a>
-      <a href="claims.html">Claims</a>
-      <a href="resources.html">Resources</a>
-      <a href="about.html">About</a>
-  <div class="mobile-nav-actions">
-    <a href="#" class="nav-login">Sign In</a>
-    <a href="quote.html" class="btn-primary">Get a Quote</a>
-  </div>
-</div>
 
-<section class="page-hero" style="padding-bottom:0">
-  <div class="page-hero-bg"></div>
-  <div class="page-hero-inner" style="padding-bottom:64px">
-    <div class="breadcrumb">
-      <a href="index.html">Home</a> <span>/</span> <span style="color:rgba(255,255,255,0.75)">Get a Quote</span>
-    </div>
-    <div style="max-width:640px;text-align:left">
-      <span class="hero-eyebrow">Free, No-Obligation</span>
-      <h1 style="font-size:clamp(34px,4vw,54px)">See your price in 60 seconds.</h1>
-      <p class="hero-sub" style="max-width:520px">No phone calls, no waiting. Answer a few quick questions and see an illustrative price instantly &mdash; then connect with an advisor when you're ready.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="background:var(--cream);padding-top:80px">
+<section class="section" style="padding-top:56px">
   <div class="container">
-    <div class="quote-wrap fade-up">
+    <div class="section-header">
+      <span class="eyebrow">Get a Quote</span>
+      <h2>Tell us a bit about yourself.</h2>
+      <p>A dedicated advisor will follow up with your quote within 1 business day.</p>
+    </div>
+
+    <div class="quote-wrap">
       <div class="form-card">
-        <div class="form-progress">
-          <div class="dot-step active" data-step-dot="1"></div>
-          <div class="dot-step" data-step-dot="2"></div>
-          <div class="dot-step" data-step-dot="3"></div>
-          <div class="dot-step" data-step-dot="4"></div>
-        </div>
-
-        <div class="quote-step active" data-step="1">
-          <span class="step-label">Step 1 of 4</span>
-          <h3 class="step-title">What are you protecting?</h3>
-          <div class="type-grid">
-            
-        <button type="button" class="type-card" data-type="life" data-base="30">
-          <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 42s-16-10-16-22a16 16 0 0132 0c0 12-16 22-16 22z"/><path d="M24 18v8M20 22h8"/></svg></div>
-          <span>Life Insurance</span>
-        </button>
-        <button type="button" class="type-card" data-type="health" data-base="625">
-          <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="14" width="32" height="26" rx="3"/><path d="M16 14V10a8 8 0 0116 0v4"/><path d="M24 22v8M20 26h8"/></svg></div>
-          <span>Health Insurance</span>
-        </button>
-        <button type="button" class="type-card" data-type="auto" data-base="194">
-          <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 30h32M10 30l4-12h20l4 12"/><circle cx="16" cy="34" r="4"/><circle cx="32" cy="34" r="4"/><path d="M6 30v4h4M42 30v4h-4"/><path d="M18 18h12"/></svg></div>
-          <span>Automobile</span>
-        </button>
-        <button type="button" class="type-card" data-type="home" data-base="176">
-          <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 24L24 8l18 16"/><path d="M10 20v20h28V20"/><rect x="18" y="30" width="12" height="10"/></svg></div>
-          <span>Home & Property</span>
-        </button>
-        <button type="button" class="type-card" data-type="education" data-base="65">
-          <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 8L4 18l20 10 20-10z"/><path d="M4 18v16"/><path d="M12 22v12a12 12 0 0024 0V22"/></svg></div>
-          <span>Education</span>
-        </button>
-        <button type="button" class="type-card" data-type="travel" data-base="25">
-          <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M42 24L6 10l4 10-4 4 10 4 4 10 4-4z"/><path d="M22 26l-6 12"/></svg></div>
-          <span>Travel Insurance</span>
-        </button>
-        <button type="button" class="type-card" data-type="business" data-base="70">
-          <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="16" width="36" height="24" rx="2"/><path d="M16 16v-4a8 8 0 0116 0v4"/><path d="M6 26h36"/><path d="M20 26v6h8v-6"/></svg></div>
-          <span>Business Insurance</span>
-        </button>
-        <button type="button" class="type-card" data-type="pet" data-base="47">
-          <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 16c0-4 4-8 8-8s8 4 8 8-4 12-8 12-8-8-8-12z"/><circle cx="12" cy="12" r="4"/><circle cx="36" cy="12" r="4"/><path d="M10 30c2 6 6 10 14 10s12-4 14-10"/></svg></div>
-          <span>Pet Insurance</span>
-        </button>
-          </div>
-          <div class="step-actions" style="margin-top:32px">
-            <button type="button" class="btn-primary" id="toStep2" style="flex:1;text-align:center;justify-content:center;padding:16px" disabled>Continue &rarr;</button>
-          </div>
-        </div>
-
-        <div class="quote-step" data-step="2">
-          <span class="step-label">Step 2 of 4</span>
-          <h3 class="step-title">Choose your coverage level</h3>
-          <div class="level-grid">
-            <div class="level-card" data-level="essential" data-mult="1">
-              <div class="level-name">Essential</div>
-              <div class="level-mult">Core protection, lower cost</div>
+        <form id="quoteForm">
+          <div class="form-row">
+            <div class="field">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" name="firstName" placeholder="Jordan" required/>
             </div>
-            <div class="level-card selected" data-level="standard" data-mult="1.6">
-              <div class="level-name">Standard</div>
-              <div class="level-mult">Most popular &mdash; balanced coverage</div>
-            </div>
-            <div class="level-card" data-level="premium" data-mult="2.4">
-              <div class="level-name">Premium</div>
-              <div class="level-mult">Maximum protection & perks</div>
+            <div class="field">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" placeholder="Rivera" required/>
             </div>
           </div>
-
-          <div class="price-panel">
-            <div>
-              <div class="price-panel-label">Your Illustrative Price</div>
-              <div class="price-panel-amount">
-                <span class="curr">$</span><span class="num" id="livePrice">--</span><span class="period">&nbsp;/ month</span>
-              </div>
-            </div>
-            <div class="price-panel-note">Estimate only. Your dedicated advisor confirms the exact rate after a short review.</div>
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jordan@email.com" required/>
           </div>
-
-          <div class="step-actions">
-            <button type="button" class="btn-back" data-back="1">&larr; Back</button>
-            <button type="button" class="btn-primary" id="toStep3">Continue &rarr;</button>
+          <div class="field">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" required/>
           </div>
-        </div>
-
-        <div class="quote-step" data-step="3">
-          <span class="step-label">Step 3 of 4</span>
-          <h3 class="step-title">Want to bundle & save?</h3>
-          <p class="body" style="color:var(--ink-soft);margin-bottom:24px">Adding another coverage type typically saves 15&ndash;30% versus separate policies. Select any you'd like included &mdash; optional.</p>
-          <div class="type-grid" id="bundleGrid">
-            
-        <button type="button" class="type-card" data-type="life" data-base="30">
-          <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 42s-16-10-16-22a16 16 0 0132 0c0 12-16 22-16 22z"/><path d="M24 18v8M20 22h8"/></svg></div>
-          <span>Life Insurance</span>
-        </button>
-        <button type="button" class="type-card" data-type="health" data-base="625">
-          <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="14" width="32" height="26" rx="3"/><path d="M16 14V10a8 8 0 0116 0v4"/><path d="M24 22v8M20 26h8"/></svg></div>
-          <span>Health Insurance</span>
-        </button>
-        <button type="button" class="type-card" data-type="auto" data-base="194">
-          <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 30h32M10 30l4-12h20l4 12"/><circle cx="16" cy="34" r="4"/><circle cx="32" cy="34" r="4"/><path d="M6 30v4h4M42 30v4h-4"/><path d="M18 18h12"/></svg></div>
-          <span>Automobile</span>
-        </button>
-        <button type="button" class="type-card" data-type="home" data-base="176">
-          <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 24L24 8l18 16"/><path d="M10 20v20h28V20"/><rect x="18" y="30" width="12" height="10"/></svg></div>
-          <span>Home & Property</span>
-        </button>
-        <button type="button" class="type-card" data-type="education" data-base="65">
-          <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 8L4 18l20 10 20-10z"/><path d="M4 18v16"/><path d="M12 22v12a12 12 0 0024 0V22"/></svg></div>
-          <span>Education</span>
-        </button>
-        <button type="button" class="type-card" data-type="travel" data-base="25">
-          <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M42 24L6 10l4 10-4 4 10 4 4 10 4-4z"/><path d="M22 26l-6 12"/></svg></div>
-          <span>Travel Insurance</span>
-        </button>
-        <button type="button" class="type-card" data-type="business" data-base="70">
-          <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="16" width="36" height="24" rx="2"/><path d="M16 16v-4a8 8 0 0116 0v4"/><path d="M6 26h36"/><path d="M20 26v6h8v-6"/></svg></div>
-          <span>Business Insurance</span>
-        </button>
-        <button type="button" class="type-card" data-type="pet" data-base="47">
-          <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 16c0-4 4-8 8-8s8 4 8 8-4 12-8 12-8-8-8-12z"/><circle cx="12" cy="12" r="4"/><circle cx="36" cy="12" r="4"/><path d="M10 30c2 6 6 10 14 10s12-4 14-10"/></svg></div>
-          <span>Pet Insurance</span>
-        </button>
+          <div class="form-row">
+            <div class="field">
+              <label for="age">Age</label>
+              <input type="number" id="age" name="age" placeholder="35" min="18" max="80" required/>
+            </div>
+            <div class="field">
+              <label for="coverage">Coverage Amount</label>
+              <select id="coverage" name="coverage" required>
+                <option value="">Select&hellip;</option>
+                <option value="250000">$250,000</option>
+                <option value="500000" selected>$500,000</option>
+                <option value="750000">$750,000</option>
+                <option value="1000000">$1,000,000</option>
+              </select>
+            </div>
           </div>
-          <div class="price-panel">
-            <div>
-              <div class="price-panel-label">Updated Illustrative Price</div>
-              <div class="price-panel-amount">
-                <span class="curr">$</span><span class="num" id="livePrice2">--</span><span class="period">&nbsp;/ month</span>
-              </div>
-            </div>
-            <div class="price-panel-note" id="savingsNote">Add a bundle to see your savings.</div>
+          <div class="field">
+            <label for="term">Term Length</label>
+            <select id="term" name="term" required>
+              <option value="10">10 years</option>
+              <option value="20" selected>20 years</option>
+              <option value="30">30 years</option>
+            </select>
           </div>
-          <div class="step-actions">
-            <button type="button" class="btn-back" data-back="2">&larr; Back</button>
-            <button type="button" class="btn-primary" id="toStep4">Continue &rarr;</button>
-          </div>
-        </div>
-
-        <div class="quote-step" data-step="4">
-          <span class="step-label">Step 4 of 4</span>
-          <h3 class="step-title">Where should we send it?</h3>
-          <form id="quoteForm">
-            <div class="form-row">
-              <div class="field">
-                <label for="firstName">First Name</label>
-                <input type="text" id="firstName" name="firstName" placeholder="Jordan" required/>
-              </div>
-              <div class="field">
-                <label for="lastName">Last Name</label>
-                <input type="text" id="lastName" name="lastName" placeholder="Rivera" required/>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="field">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="jordan@email.com" required/>
-              </div>
-              <div class="field">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" required/>
-              </div>
-            </div>
-            <div class="form-row full">
-              <div class="field">
-                <label for="zip">Zip / Postal Code</label>
-                <input type="text" id="zip" name="zip" placeholder="10001"/>
-              </div>
-            </div>
-            <div class="price-panel">
-              <div>
-                <div class="price-panel-label">Your Final Illustrative Price</div>
-                <div class="price-panel-amount">
-                  <span class="curr">$</span><span class="num" id="livePrice3">--</span><span class="period">&nbsp;/ month</span>
-                </div>
-              </div>
-              <div class="price-panel-note">A dedicated advisor will confirm this within 1 business day.</div>
-            </div>
-            <div class="step-actions">
-              <button type="button" class="btn-back" data-back="3">&larr; Back</button>
-              <button type="submit" class="btn-primary form-submit" style="flex:1">Get My Free Quote</button>
-            </div>
-          </form>
-        </div>
-
-      </div>
-      <div class="quote-trust">
-        <div class="quote-trust-item"><span class="dot"></span>No spam, ever</div>
-        <div class="quote-trust-item"><span class="dot"></span>Response within 1 business day</div>
-        <div class="quote-trust-item"><span class="dot"></span>No obligation to purchase</div>
+          <button type="submit" class="btn-primary form-submit" style="width:100%;padding:15px;text-align:center;justify-content:center;margin-top:8px">Request My Free Quote</button>
+        </form>
       </div>
     </div>
   </div>
@@ -351,216 +81,11 @@
 
 <footer>
   <div class="container">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="logo">Insure<span>All</span></div>
-        <p>Protecting legacies across 47 countries with editorial precision and human warmth since 1991.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Coverage</h4>
-        <ul>
-          <li><a href="life.html">Life Insurance</a></li>
-          <li><a href="health.html">Health Insurance</a></li>
-          <li><a href="auto.html">Automobile</a></li>
-          <li><a href="home.html">Home & Property</a></li>
-          <li><a href="education.html">Education</a></li>
-          <li><a href="travel.html">Travel</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>More</h4>
-        <ul>
-          <li><a href="business.html">Business</a></li>
-          <li><a href="pet.html">Pet Insurance</a></li>
-          <li><a href="index.html#categories">All Coverage</a></li>
-          <li><a href="resources.html">Resources & Guides</a></li>
-          <li><a href="quote.html">Get a Quote</a></li>
-          <li><a href="claims.html">File a Claim</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="about.html">About InsureAll</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Newsroom</a></li>
-          <li><a href="#">Transparency Report</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Cookie Policy</a></li>
-          <li><a href="#">Accessibility</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 InsureAll Inc. All rights reserved. Regulated by the FCA. Lloyd's Syndicate Member.</p>
-      <div class="footer-socials">
-        <a href="#">LinkedIn</a>
-        <a href="#">Twitter</a>
-        <a href="#">Instagram</a>
-      </div>
-    </div>
+    <p>&copy; 2026 InsureAll. Life insurance made simple.</p>
   </div>
 </footer>
+
 <script>
-function toggleFAQ(btn) {
-  const item = btn.closest('.faq-item');
-  const answer = item.querySelector('.faq-answer');
-  const icon = btn.querySelector('.faq-icon');
-  const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(el => {
-    el.classList.remove('open');
-    el.querySelector('.faq-answer').style.maxHeight = '0';
-  });
-  if (!isOpen) {
-    item.classList.add('open');
-    answer.style.maxHeight = answer.scrollHeight + 'px';
-  }
-}
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-const nav = document.querySelector('nav');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 60) nav.style.boxShadow = '0 2px 32px rgba(13,27,42,0.09)';
-  else nav.style.boxShadow = 'none';
-}, { passive: true });
-
-// Coverage dropdown toggle
-const ddBtn = document.getElementById('coverageDropdownBtn');
-const ddPanel = document.getElementById('coverageDropdownPanel');
-if (ddBtn && ddPanel) {
-  const ddWrap = ddBtn.closest('.nav-dropdown');
-  ddBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    ddPanel.classList.toggle('open');
-    ddWrap.classList.toggle('open');
-  });
-  document.addEventListener('click', (e) => {
-    if (!ddWrap.contains(e.target)) {
-      ddPanel.classList.remove('open');
-      ddWrap.classList.remove('open');
-    }
-  });
-}
-
-// Mobile hamburger menu toggle
-const hamburgerBtn = document.getElementById('hamburgerBtn');
-const mobileNav = document.getElementById('mobileNav');
-if (hamburgerBtn && mobileNav) {
-  hamburgerBtn.addEventListener('click', () => {
-    hamburgerBtn.classList.toggle('open');
-    mobileNav.classList.toggle('open');
-    document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
-  });
-  mobileNav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburgerBtn.classList.remove('open');
-      mobileNav.classList.remove('open');
-      document.body.style.overflow = '';
-    });
-  });
-}
-</script>
-<script>
-const BASE_PRICES = {'life': 30, 'health': 625, 'auto': 194, 'home': 176, 'education': 65, 'travel': 25, 'business': 70, 'pet': 47};
-let state = { type: null, level: 'standard', mult: 1.6, bundles: [] };
-
-(function() {
-  const params = new URLSearchParams(window.location.search);
-  const type = params.get('type');
-  if (type && BASE_PRICES[type]) {
-    selectType(type);
-  }
-})();
-
-function calcPrice() {
-  if (!state.type) return 0;
-  let base = BASE_PRICES[state.type] * state.mult;
-  let bundleTotal = 0;
-  state.bundles.forEach(b => { bundleTotal += BASE_PRICES[b] * state.mult * 0.75; });
-  return Math.round(base + bundleTotal);
-}
-
-function updatePriceDisplays() {
-  const price = calcPrice();
-  ['livePrice','livePrice2','livePrice3'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.textContent = price || '--';
-  });
-  const note = document.getElementById('savingsNote');
-  if (note) {
-    if (state.bundles.length > 0) {
-      const withoutDiscount = state.bundles.reduce((sum, b) => sum + BASE_PRICES[b] * state.mult, 0) + BASE_PRICES[state.type] * state.mult;
-      const savings = Math.round(withoutDiscount - price);
-      const pct = Math.round((savings / withoutDiscount) * 100);
-      note.textContent = `You're saving ~$${savings}/mo (${pct}%) by bundling.`;
-      note.style.color = 'rgba(255,255,255,0.75)';
-    } else {
-      note.textContent = 'Add a bundle to see your savings.';
-      note.style.color = 'rgba(255,255,255,0.35)';
-    }
-  }
-}
-
-function selectType(type) {
-  state.type = type;
-  document.querySelectorAll('.quote-step[data-step="1"] .type-card').forEach(c => {
-    c.classList.toggle('selected', c.dataset.type === type);
-  });
-  const toStep2 = document.getElementById('toStep2');
-  if (toStep2) toStep2.disabled = false;
-  updatePriceDisplays();
-}
-
-document.querySelectorAll('.quote-step[data-step="1"] .type-card').forEach(card => {
-  card.addEventListener('click', () => selectType(card.dataset.type));
-});
-
-document.querySelectorAll('.level-card').forEach(card => {
-  card.addEventListener('click', () => {
-    document.querySelectorAll('.level-card').forEach(c => c.classList.remove('selected'));
-    card.classList.add('selected');
-    state.level = card.dataset.level;
-    state.mult = parseFloat(card.dataset.mult);
-    updatePriceDisplays();
-  });
-});
-
-document.querySelectorAll('#bundleGrid .type-card').forEach(card => {
-  card.addEventListener('click', () => {
-    const t = card.dataset.type;
-    if (t === state.type) return;
-    if (state.bundles.includes(t)) {
-      state.bundles = state.bundles.filter(b => b !== t);
-      card.classList.remove('selected');
-    } else {
-      state.bundles.push(t);
-      card.classList.add('selected');
-    }
-    updatePriceDisplays();
-  });
-});
-
-function goToStep(n) {
-  document.querySelectorAll('.quote-step').forEach(s => s.classList.toggle('active', s.dataset.step === String(n)));
-  document.querySelectorAll('.dot-step').forEach(d => d.classList.toggle('active', parseInt(d.dataset.stepDot) <= n));
-  window.scrollTo({ top: document.querySelector('.form-card').offsetTop - 100, behavior: 'smooth' });
-}
-
-document.getElementById('toStep2').addEventListener('click', () => goToStep(2));
-document.getElementById('toStep3').addEventListener('click', () => goToStep(3));
-document.getElementById('toStep4').addEventListener('click', () => goToStep(4));
-document.querySelectorAll('[data-back]').forEach(btn => {
-  btn.addEventListener('click', () => goToStep(parseInt(btn.dataset.back)));
-});
-
 document.getElementById('quoteForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const btn = this.querySelector('.form-submit');
@@ -568,8 +93,6 @@ document.getElementById('quoteForm').addEventListener('submit', function(e) {
   btn.style.background = 'var(--emerald)';
   setTimeout(() => { btn.textContent = "We'll be in touch within 1 business day"; }, 1800);
 });
-
-updatePriceDisplays();
 </script>
 </body>
 </html>
