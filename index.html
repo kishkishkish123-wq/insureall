@@ -3,344 +3,193 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Every Protection, One House — InsureAll</title>
-<meta name="description" content="InsureAll covers life, health, auto, home, education, travel, business and pet insurance under one platform."/>
+<title>InsureAll — Life Insurance</title>
+<meta name="description" content="Simple, honest life insurance. Term coverage that protects your family without the complexity."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="css/style.css?v=7"/>
-
+<link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
+
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">Insure<span>All</span></a>
-    <div class="nav-links">
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" id="coverageDropdownBtn">Coverage <span class="dd-caret">&#9662;</span></button>
-        <div class="nav-dropdown-panel" id="coverageDropdownPanel">
-          <a href="life.html">Life</a>
-        <a href="health.html">Health</a>
-        <a href="auto.html">Auto</a>
-        <a href="home.html">Home</a>
-        <a href="education.html">Education</a>
-        <a href="travel.html">Travel</a>
-        <a href="business.html">Business</a>
-        <a href="pet.html">Pet</a>
-        </div>
-      </div>
-      <a href="claims.html">Claims</a>
-      <a href="resources.html">Resources</a>
-      <a href="about.html">About</a>
-    </div>
-    <div class="nav-actions">
-      <a href="#" class="nav-login">Sign In</a>
-      <a href="quote.html" class="btn-primary">Get a Quote</a>
-    </div>
-    <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-<div class="mobile-nav" id="mobileNav">
-  <a href="life.html">Life</a>
-      <a href="health.html">Health</a>
-      <a href="auto.html">Auto</a>
-      <a href="home.html">Home</a>
-      <a href="education.html">Education</a>
-      <a href="travel.html">Travel</a>
-      <a href="business.html">Business</a>
-      <a href="pet.html">Pet</a>
-      <a href="claims.html">Claims</a>
-      <a href="resources.html">Resources</a>
-      <a href="about.html">About</a>
-  <div class="mobile-nav-actions">
-    <a href="#" class="nav-login">Sign In</a>
     <a href="quote.html" class="btn-primary">Get a Quote</a>
   </div>
-</div>
+</nav>
 
-<!-- ═══ HERO ═══ -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <svg class="hero-texture" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M-100 450 Q200 200 500 400 T1100 350 T1600 500" stroke="#C9A96E" stroke-width="1" fill="none"/>
-    <path d="M-100 600 Q300 350 600 550 T1200 480 T1700 620" stroke="#4A7261" stroke-width="0.8" fill="none"/>
-    <path d="M0 750 Q400 500 700 700 T1300 630 T1700 800" stroke="#C9A96E" stroke-width="0.6" fill="none"/>
-    <path d="M200 200 Q500 50 800 250 T1400 180" stroke="#4A7261" stroke-width="0.7" fill="none"/>
-    <circle cx="1200" cy="200" r="180" stroke="#4A7261" stroke-width="0.5" fill="none"/>
-    <circle cx="1200" cy="200" r="280" stroke="#C9A96E" stroke-width="0.4" fill="none"/>
-  </svg>
-  <div class="hero-content">
-    <div class="hero-eyebrow">Every protection, one house</div>
-    <h1>Insurance<br/>that honours<br/>your <em>legacy.</em></h1>
-    <p class="hero-sub">From life to liability, automobile to education — InsureAll is the only platform you'll ever need to protect everything that matters.</p>
+  <div class="container">
+    <h1>Life insurance that protects <em>your family</em>, plainly explained.</h1>
+    <p>Term life coverage with no hidden fine print. Answer a few questions, see a real price, done.</p>
     <div class="hero-actions">
       <a href="quote.html" class="btn-hero">Get Your Quote &rarr;</a>
-      <a href="#categories" class="btn-hero-ghost">Explore Coverage</a>
-    </div>
-  </div>
-  <div class="hero-stats">
-    <div class="stat-item"><span class="stat-num">2.4<span>M+</span></span><span class="stat-label">Policies active</span></div>
-    <div class="stat-item"><span class="stat-num">98.7<span>%</span></span><span class="stat-label">Claims approved</span></div>
-    <div class="stat-item"><span class="stat-num">$4.2<span>B</span></span><span class="stat-label">Claims paid out</span></div>
-    <div class="stat-item"><span class="stat-num">A<span>++</span></span><span class="stat-label">Financial strength</span></div>
-  </div>
-</section>
-
-<!-- ═══ CATEGORIES ═══ -->
-<section class="section categories" id="categories">
-  <div class="container">
-    <div class="section-header fade-up">
-      <span class="eyebrow">Complete Coverage</span>
-      <h2 class="headline">Every type of insurance,<br/>under one roof.</h2>
-      <p class="body-lg">From protecting your family's future to safeguarding your business empire — click into any category for full plan details.</p>
-      <span class="rule"></span>
-    </div>
-    <div class="categories-grid fade-up fade-up-d1">
-      
-      <a href="life.html" class="cat-card">
-        <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 42s-16-10-16-22a16 16 0 0132 0c0 12-16 22-16 22z"/><path d="M24 18v8M20 22h8"/></svg></div>
-        <span class="cat-arrow">&rarr;</span>
-        <h3>Life Insurance</h3>
-        <p>Term, whole life, universal — secure your family's financial future against life's uncertainties.</p>
-      </a>
-      <a href="health.html" class="cat-card">
-        <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="14" width="32" height="26" rx="3"/><path d="M16 14V10a8 8 0 0116 0v4"/><path d="M24 22v8M20 26h8"/></svg></div>
-        <span class="cat-arrow">&rarr;</span>
-        <h3>Health Insurance</h3>
-        <p>Comprehensive medical, dental, vision and mental health coverage for individuals and families.</p>
-      </a>
-      <a href="auto.html" class="cat-card">
-        <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 30h32M10 30l4-12h20l4 12"/><circle cx="16" cy="34" r="4"/><circle cx="32" cy="34" r="4"/><path d="M6 30v4h4M42 30v4h-4"/><path d="M18 18h12"/></svg></div>
-        <span class="cat-arrow">&rarr;</span>
-        <h3>Automobile</h3>
-        <p>Comprehensive, collision, liability and roadside protection for every vehicle you own.</p>
-      </a>
-      <a href="home.html" class="cat-card">
-        <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 24L24 8l18 16"/><path d="M10 20v20h28V20"/><rect x="18" y="30" width="12" height="10"/></svg></div>
-        <span class="cat-arrow">&rarr;</span>
-        <h3>Home & Property</h3>
-        <p>Protect your home, belongings and liability as a homeowner, landlord or renter.</p>
-      </a>
-      <a href="education.html" class="cat-card">
-        <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 8L4 18l20 10 20-10z"/><path d="M4 18v16"/><path d="M12 22v12a12 12 0 0024 0V22"/></svg></div>
-        <span class="cat-arrow">&rarr;</span>
-        <h3>Education</h3>
-        <p>Safeguard your children's academic future with savings-linked education protection plans.</p>
-      </a>
-      <a href="travel.html" class="cat-card">
-        <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M42 24L6 10l4 10-4 4 10 4 4 10 4-4z"/><path d="M22 26l-6 12"/></svg></div>
-        <span class="cat-arrow">&rarr;</span>
-        <h3>Travel Insurance</h3>
-        <p>Medical emergencies, trip cancellations, lost baggage — travel without worry worldwide.</p>
-      </a>
-      <a href="business.html" class="cat-card">
-        <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="16" width="36" height="24" rx="2"/><path d="M16 16v-4a8 8 0 0116 0v4"/><path d="M6 26h36"/><path d="M20 26v6h8v-6"/></svg></div>
-        <span class="cat-arrow">&rarr;</span>
-        <h3>Business Insurance</h3>
-        <p>General liability, professional indemnity, key-man and commercial property for your enterprise.</p>
-      </a>
-      <a href="pet.html" class="cat-card">
-        <div class="cat-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 16c0-4 4-8 8-8s8 4 8 8-4 12-8 12-8-8-8-12z"/><circle cx="12" cy="12" r="4"/><circle cx="36" cy="12" r="4"/><path d="M10 30c2 6 6 10 14 10s12-4 14-10"/></svg></div>
-        <span class="cat-arrow">&rarr;</span>
-        <h3>Pet Insurance</h3>
-        <p>Veterinary care, surgeries and medication covered so your companions always receive the best.</p>
-      </a>
+      <a href="#covered" class="btn-hero-ghost">What's Covered</a>
     </div>
   </div>
 </section>
 
-<!-- ═══ HOW IT WORKS ═══ -->
-<section class="section process" id="process">
+<section class="section" id="covered">
   <div class="container">
-    <div class="process-grid">
-      <div class="fade-up">
-        <div class="section-header">
-          <span class="eyebrow">Our Method</span>
-          <h2 class="headline">Protection crafted around your life.</h2>
-          <span class="rule"></span>
+    <div class="section-header">
+      <span class="eyebrow">Coverage</span>
+      <h2>What life insurance actually covers.</h2>
+      <p>A death benefit is only the starting point. Here's what it's really for.</p>
+    </div>
+    <ul class="covered-list">
+      <li>
+        <div class="covered-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6 10-10"/></svg></div>
+        <div class="covered-item">
+          <h4>Income replacement</h4>
+          <p>Ensures your family maintains their standard of living if your income disappears.</p>
         </div>
-        <div class="process-steps">
-          <div class="step">
-            <div class="step-num">01</div>
-            <div class="step-body"><h3>Consult</h3><p>A dedicated advisor maps your full financial landscape before recommending a single product.</p></div>
-          </div>
-          <div class="step">
-            <div class="step-num">02</div>
-            <div class="step-body"><h3>Customise</h3><p>We architect a bespoke protection portfolio, precisely matched to your life.</p></div>
-          </div>
-          <div class="step">
-            <div class="step-num">03</div>
-            <div class="step-body"><h3>Commit</h3><p>Implementation with exacting standards, followed by proactive annual reviews.</p></div>
-          </div>
-          <div class="step">
-            <div class="step-num">04</div>
-            <div class="step-body"><h3>Claim with Confidence</h3><p>A single, named concierge manages every claim from first notice to resolution.</p></div>
-          </div>
+      </li>
+      <li>
+        <div class="covered-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6 10-10"/></svg></div>
+        <div class="covered-item">
+          <h4>Mortgage & debt payoff</h4>
+          <p>Prevents loved ones from losing the family home or inheriting your liabilities.</p>
         </div>
-      </div>
-      <div class="process-visual fade-up fade-up-d2">
-        <div class="process-visual-bg"></div>
-        <div class="process-visual-quote">
-          <div class="pq-mark">"</div>
-          <p class="pq-text">Insurance should not feel like bureaucracy. It should feel like the quiet confidence of knowing someone has your back — always.</p>
-          <span class="pq-author">&mdash; Marcus Chen, Chief Advisor, InsureAll</span>
+      </li>
+      <li>
+        <div class="covered-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6 10-10"/></svg></div>
+        <div class="covered-item">
+          <h4>Final expenses</h4>
+          <p>Covers funeral costs, medical bills, and estate settlement fees immediately.</p>
         </div>
+      </li>
+      <li>
+        <div class="covered-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6 10-10"/></svg></div>
+        <div class="covered-item">
+          <h4>Children's future</h4>
+          <p>Earmarked funds for education, so your children's plans stay intact.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" style="background:var(--white)">
+  <div class="container">
+    <div class="not-necessary">
+      <div class="not-necessary-icon">&#9432;</div>
+      <div>
+        <h4>When this might not be necessary</h4>
+        <p>If no one depends on your income — no children, no partner relying on you financially, no co-signed debt — a large life insurance policy usually isn't urgent. A small final-expense policy may still be worth it to avoid burdening family with funeral costs.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ TRUST ═══ -->
-<section class="section trust" id="trust">
+<section class="section" id="plans" style="background:var(--sand)">
   <div class="container">
-    <div class="section-header fade-up" style="max-width:600px">
-      <span class="eyebrow">Institutional Strength</span>
-      <h2 class="headline">Unwavering stability, measurably proven.</h2>
-      <span class="rule"></span>
+    <div class="section-header">
+      <span class="eyebrow">Plans</span>
+      <h2>Simple, transparent pricing.</h2>
+      <p>Based on a healthy 35-year-old non-smoker. Your actual rate depends on age, health, and coverage amount.</p>
     </div>
-    <div class="trust-grid">
-      <div class="trust-metrics fade-up">
-        <div class="metric"><span class="metric-label">Financial Strength Rating</span><span class="metric-val">A++</span></div>
-        <div class="metric"><span class="metric-label">Claims Paid (2025)</span><span class="metric-val">$4.2B</span></div>
-        <div class="metric"><span class="metric-label">Claims Approval Rate</span><span class="metric-val">98.7%</span></div>
-        <div class="metric"><span class="metric-label">Average Claim Settlement</span><span class="metric-val">7 days</span></div>
-        <div class="metric"><span class="metric-label">Years in Operation</span><span class="metric-val">34 yrs</span></div>
-        <div class="metric"><span class="metric-label">Active Policyholders</span><span class="metric-val">2.4M</span></div>
-      </div>
-      <div class="trust-card fade-up fade-up-d2">
-        <div class="trust-card-bg"></div>
-        <div class="trust-card-content">
-          <div class="trust-icon">&#128737;</div>
-          <h3>The Clarity Guarantee</h3>
-          <p>Every policy document is summarised in plain language. If a claim is ever declined, we provide an exhaustive explanation and appoint a dedicated ombudsman to review it, at no charge.</p>
-          <a href="#" class="trust-link">Read our transparency report &rarr;</a>
-          <div class="trust-badges">
-            <div class="trust-badge">&#10003; ISO 27001 Certified</div>
-            <div class="trust-badge">&#10003; GDPR Compliant</div>
-            <div class="trust-badge">&#10003; FCA Regulated</div>
-            <div class="trust-badge">&#10003; Lloyd's Syndicate</div>
-          </div>
+    <div class="plans-grid">
+      <div class="plan-card">
+        <span class="plan-type">Term</span>
+        <div class="plan-name">10-Year</div>
+        <div class="plan-price">
+          <span class="amount">$21</span> <span class="period">/ month</span>
         </div>
+        <ul class="plan-features">
+          <li>$250,000 coverage</li>
+          <li>Level premiums for 10 years</li>
+          <li>Convertible to permanent</li>
+        </ul>
+        <a href="quote.html" class="plan-cta dark">Get Started</a>
+      </div>
+      <div class="plan-card featured">
+        <span class="plan-type">Term</span>
+        <div class="plan-name">20-Year</div>
+        <div class="plan-price">
+          <span class="amount">$30</span> <span class="period">/ month</span>
+        </div>
+        <ul class="plan-features">
+          <li>$500,000 coverage</li>
+          <li>Level premiums for 20 years</li>
+          <li>Convertible to permanent</li>
+        </ul>
+        <a href="quote.html" class="plan-cta light">Get Started</a>
+      </div>
+      <div class="plan-card">
+        <span class="plan-type">Term</span>
+        <div class="plan-name">30-Year</div>
+        <div class="plan-price">
+          <span class="amount">$45</span> <span class="period">/ month</span>
+        </div>
+        <ul class="plan-features">
+          <li>$500,000 coverage</li>
+          <li>Level premiums for 30 years</li>
+          <li>Convertible to permanent</li>
+        </ul>
+        <a href="quote.html" class="plan-cta dark">Get Started</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ TESTIMONIALS ═══ -->
-<!-- ═══ FAQ ═══ -->
-<section class="section faq" id="faq">
+<section class="section" id="faq" style="background:var(--white)">
   <div class="container">
-    <div class="faq-grid">
-      <div class="faq-intro fade-up">
-        <span class="eyebrow" style="color:var(--emerald);font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;display:block;margin-bottom:20px;">FAQ</span>
-        <h2 class="headline" style="margin-bottom:0">Common<br/>Inquiries</h2>
-        <p>If your question isn't here, your dedicated advisor can walk you through any aspect of your coverage.</p>
-        <span class="rule" style="margin-top:32px"></span>
-        <div style="margin-top:40px"><a href="quote.html" class="btn-outline">Speak to an Advisor</a></div>
+    <div class="section-header">
+      <span class="eyebrow">FAQ</span>
+      <h2>Common questions.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFAQ(this)">
+          <span class="faq-question">How much life insurance do I need?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p class="faq-answer-inner">A common approach: add up your outstanding debt, income you'd want replaced (annual income × years needed), remaining mortgage balance, and future education costs. That total is a reasonable coverage target — not a generic multiplier of your salary.</p></div>
       </div>
-      <div class="faq-list fade-up fade-up-d1">
-        <div class="faq-item">
-          <button class="faq-btn" onclick="toggleFAQ(this)"><span class="faq-question">How long does the initial consultation take?</span><span class="faq-icon">+</span></button>
-          <div class="faq-answer"><p class="faq-answer-inner">Our initial consultations typically run 45 to 60 minutes, ensuring we understand your full situation before proposing any product.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-btn" onclick="toggleFAQ(this)"><span class="faq-question">Can I bundle multiple types of insurance?</span><span class="faq-icon">+</span></button>
-          <div class="faq-answer"><p class="faq-answer-inner">Absolutely. Bundling with InsureAll typically saves clients between 15&ndash;30% compared to holding separate single-category policies.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-btn" onclick="toggleFAQ(this)"><span class="faq-question">What makes your claims process different?</span><span class="faq-icon">+</span></button>
-          <div class="faq-answer"><p class="faq-answer-inner">You are assigned a named claims concierge from first notice of loss to resolution. No call queues, no department transfers.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-btn" onclick="toggleFAQ(this)"><span class="faq-question">Is InsureAll available internationally?</span><span class="faq-icon">+</span></button>
-          <div class="faq-answer"><p class="faq-answer-inner">InsureAll currently operates across 47 countries, with select plans including automatic global coverage.</p></div>
-        </div>
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFAQ(this)">
+          <span class="faq-question">What's the difference between term and permanent life insurance?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p class="faq-answer-inner">Term life covers you for a fixed period (10, 20, or 30 years) at a lower cost. Permanent life (whole or universal) covers you for life and builds cash value, but costs significantly more. Most people with temporary needs — like a mortgage or young kids — are better served by term.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFAQ(this)">
+          <span class="faq-question">Do I need a medical exam?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p class="faq-answer-inner">Many applicants under 50 in good health qualify for accelerated underwriting using health records and prescription history, without a physical exam. Older applicants or larger coverage amounts may still require one.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFAQ(this)">
+          <span class="faq-question">Can I change my coverage later?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p class="faq-answer-inner">Term policies typically include a conversion option, letting you switch to permanent coverage without a new medical exam, usually within the first 10-20 years. You can also apply for additional term coverage separately as your needs change.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ CTA ═══ -->
-<section class="section cta-section" id="cta">
-  <div class="cta-bg"></div>
+<section class="section cta-section">
   <div class="container">
-    <div class="cta-content fade-up">
-      <span class="eyebrow label">Start Today</span>
-      <h2>Your legacy deserves<br/><em style="font-family:'Playfair Display',serif;font-style:italic;color:var(--gold)">complete protection.</em></h2>
-      <p>Speak with a dedicated advisor. No commitment, no pressure &mdash; just clarity about the protection you need.</p>
-      <div class="cta-actions">
-        <a href="quote.html" class="btn-hero">Get a Free Quote &rarr;</a>
-        <a href="tel:+18005550100" class="btn-hero-ghost">&#9742; Call +1 800 555 0100</a>
-      </div>
-    </div>
+    <h2>Ready to see your real price?</h2>
+    <p>Takes about 2 minutes. No obligation.</p>
+    <a href="quote.html" class="btn-hero">Get Your Quote &rarr;</a>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="logo">Insure<span>All</span></div>
-        <p>Protecting legacies across 47 countries with editorial precision and human warmth since 1991.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Coverage</h4>
-        <ul>
-          <li><a href="life.html">Life Insurance</a></li>
-          <li><a href="health.html">Health Insurance</a></li>
-          <li><a href="auto.html">Automobile</a></li>
-          <li><a href="home.html">Home & Property</a></li>
-          <li><a href="education.html">Education</a></li>
-          <li><a href="travel.html">Travel</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>More</h4>
-        <ul>
-          <li><a href="business.html">Business</a></li>
-          <li><a href="pet.html">Pet Insurance</a></li>
-          <li><a href="index.html#categories">All Coverage</a></li>
-          <li><a href="resources.html">Resources & Guides</a></li>
-          <li><a href="quote.html">Get a Quote</a></li>
-          <li><a href="claims.html">File a Claim</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="about.html">About InsureAll</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Newsroom</a></li>
-          <li><a href="#">Transparency Report</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Cookie Policy</a></li>
-          <li><a href="#">Accessibility</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 InsureAll Inc. All rights reserved. Regulated by the FCA. Lloyd's Syndicate Member.</p>
-      <div class="footer-socials">
-        <a href="#">LinkedIn</a>
-        <a href="#">Twitter</a>
-        <a href="#">Instagram</a>
-      </div>
-    </div>
+    <p>&copy; 2026 InsureAll. Life insurance made simple.</p>
   </div>
 </footer>
+
 <script>
 function toggleFAQ(btn) {
   const item = btn.closest('.faq-item');
   const answer = item.querySelector('.faq-answer');
-  const icon = btn.querySelector('.faq-icon');
   const isOpen = item.classList.contains('open');
   document.querySelectorAll('.faq-item').forEach(el => {
     el.classList.remove('open');
@@ -350,51 +199,6 @@ function toggleFAQ(btn) {
     item.classList.add('open');
     answer.style.maxHeight = answer.scrollHeight + 'px';
   }
-}
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-const nav = document.querySelector('nav');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 60) nav.style.boxShadow = '0 2px 32px rgba(13,27,42,0.09)';
-  else nav.style.boxShadow = 'none';
-}, { passive: true });
-
-// Coverage dropdown toggle
-const ddBtn = document.getElementById('coverageDropdownBtn');
-const ddPanel = document.getElementById('coverageDropdownPanel');
-if (ddBtn && ddPanel) {
-  const ddWrap = ddBtn.closest('.nav-dropdown');
-  ddBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    ddPanel.classList.toggle('open');
-    ddWrap.classList.toggle('open');
-  });
-  document.addEventListener('click', (e) => {
-    if (!ddWrap.contains(e.target)) {
-      ddPanel.classList.remove('open');
-      ddWrap.classList.remove('open');
-    }
-  });
-}
-
-// Mobile hamburger menu toggle
-const hamburgerBtn = document.getElementById('hamburgerBtn');
-const mobileNav = document.getElementById('mobileNav');
-if (hamburgerBtn && mobileNav) {
-  hamburgerBtn.addEventListener('click', () => {
-    hamburgerBtn.classList.toggle('open');
-    mobileNav.classList.toggle('open');
-    document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
-  });
-  mobileNav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburgerBtn.classList.remove('open');
-      mobileNav.classList.remove('open');
-      document.body.style.overflow = '';
-    });
-  });
 }
 </script>
 </body>
